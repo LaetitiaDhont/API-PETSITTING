@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <!-- DÉBUT DU CARD DECK-->
+    <div *ngFor="let petsitter of petsitterList" class="card-deck" id="cardAnnonce">
+      <!-- DÉBUT CARD-->
+      <div class="card mb-auto">
+
+        <!-- IMAGE CARD-->
+        <div class="row justify-content-center">
+          <div class="mx-auto">
+            <img alt="thumbnail" class="img-thumbnail" id="image"
+                 src="https://images6.alphacoders.com/678/678636.jpg"
+                 style="width: 400px">
+          </div>
+        </div>
+        <!-- FIN IMAGE CARD-->
+
+        <!-- CARD BODY -->
+        <div class="card-body">
+          <div class="row align-items-start">
+            <div class="col">
+              <h4 class="card-title" id="firstname"> Titre : {{petsitter.firstName}}</h4>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <div class="col">
+              <p>Description : {{petsitter.lastName}}</p>
+            </div>
+          </div>
+          <br>
+          <div class="row justify-content-center">
+            <div class="col">
+              <p>Mail : {{petsitter.mail}}</p>
+            </div>
+          </div>
+          <div class="row align-items-end">
+            <div class="col">
+              Je vis dans un milieu : {{petsitter.environment}}
+            </div>
+          </div>
+          <div class="row align-items-end">
+            <div class="col">
+              Je vis dans un milieu : {{petsitter.animalAllowed}}
+            </div>
+          </div>
+          <div class="row align-items-end">
+            <div class="col">
+              Je vis dans un milieu : {{petsitter.phone}}
+            </div>
+          </div>
+          <div class="row align-items-end">
+            <div class="col">
+              Je vis dans un milieu : {{petsitter.price}}
+            </div>
+          </div>
+          <!-- FIN DU CARD BODY-->
+        </div>
+        <!-- FIN DES CARDS -->
+        <!-- BUTTON CONTACT-->
+
+        <!-- FIN DU BUTTON CONTACT-->
+        <!-- FIN CARD DECK-->
+      </div>
+      <!-- FIN DU ROW -->
+    </div>
+    <!-- FIN DU CONTAINER -->
+  </div>
+  <!-- FIN DU CODE -->
+  <!-- DÉBUT DU CONTACTFORM-->

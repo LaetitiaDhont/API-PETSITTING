@@ -1,0 +1,89 @@
+<html>
+<body>
+<header>
+  <!-- FORM REGISTER PETSITTER-->
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" [ngFormOptions]="{updateOn: 'onSubmit()'}"
+          class="text-center border border-light p-5">
+
+      <p class="h4 mb-4">Je veux devenir petsitter</p>
+
+      <div class="form-row mb-4 justify-content-center">
+        <div class="col-auto">
+          <!-- First name -->
+          <label class="justify-content-center">Mon prénom</label>
+          <input [(ngModel)]="petsitter.firstName" class="form-control" id="firstName" name="firstName"
+                 placeholder="Laetitia" required type="text">
+        </div>
+        <div class="col-auto">
+          <label>Mon nom de famille</label>
+          <!-- Last name -->
+          <input [(ngModel)]="petsitter.lastName" class="form-control" id="lastName" name="lastName"
+                 placeholder="Dhont" required type="text">
+        </div>
+      </div>
+
+      <!-- E-mail -->
+      <div class="form-row mb-4 justify-content-center">
+        <div class="col-auto">
+          <input #email="ngModel" [(ngModel)]="petsitter.mail" class="form-control mb-4" id="email" mdbInput mdbValidate
+                 name="email" pattern=".+@.+\.[a-z]+" required required type="email">
+          <label for="email">Email</label>
+          <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">Le format de l'email est incorrect
+          </mdb-error>
+          <mdb-success *ngIf="email.valid && (email.dirty || email.touched)">Input valid</mdb-success>
+        </div>
+      </div>
+      <!-- Password -->
+      <!-- <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
+              aria-describedby="defaultRegisterFormPasswordHelpBlock">
+       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+         At least 8 characters and 1 digit
+       </small> -->
+
+      <!-- Phone number -->
+      <div class="form-row justify-content-center">
+        <div class="col-auto justif">
+          <label for="environment">Je vis dans un milieu...</label>
+          <select [(ngModel)]="petsitter.environment" class="browser-default custom-select mb-4"
+                  id="environment" name="environment">
+            <option selected value="URBAN">Urbain</option>
+            <option value="COUNTRYSIDE">Campagne</option>
+            <option value="BEACH">Bord de mer</option>
+            <option value="MOUNTAIN">Montagneux</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div class="col-auto">
+          <label>Mon numéro de téléphone portable</label>
+          <input [(ngModel)]="petsitter.phone" class="form-control mb-4" id="phone" name="phone"
+                 placeholder="0785642554" required type="text">
+          <label>Prix en euros par jour</label>
+          <input [(ngModel)]="petsitter.price" class="form-control mb-4" id="price" name="price" placeholder="20"
+                 required type="text">
+          <div class="form-row mb-4 justify-content-center">
+            <div class="col-auto">
+              <!-- First name -->
+              <label class="justify-content-center">Animaux autorisées</label>
+              <input [(ngModel)]="petsitter.animalAllowed" class="form-control" id="animalAllowed" name="animalAllowed"
+                     placeholder="Animaux autorisés" required type="text">
+            </div>
+          </div>
+          <button (click)="onSubmit()" block="true" class="my-4" color="cyan" id="button" mdbBtn type="submit">
+            Devenir petsitter
+          </button>
+
+        </div>
+      </div>
+
+
+      <!-- Sign up button -->
+
+    </form>
+  </div>
+
+  <!-- Default form register -->
+</header>
+</body>
+</html>

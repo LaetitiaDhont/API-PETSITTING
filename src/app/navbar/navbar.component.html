@@ -1,0 +1,48 @@
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+<header>
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan">
+    <mdb-navbar-brand>
+      <a class="navbar-brand p-2" href="#">
+        <figure>
+          <img alt="logo" id="logo" src="./assets/img/logo.png"/>
+        </figure>
+      </a>
+    </mdb-navbar-brand>
+    <links>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="register">
+            <mdb-icon fas icon="cat"></mdb-icon>
+            Devenir Petsitter<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>
+            <mdb-icon fas icon="sign-in-alt"></mdb-icon>
+            Se connecter</a>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown" dropdown>
+          <a class="nav-link dropdown-toggle waves-light" dropdownToggle mdbWavesEffect mdbWavesEffect type="button">
+            <mdb-icon fas icon="user"></mdb-icon>
+            Profile<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" href="#" mdbWavesEffect>My account</a>
+            <a class="dropdown-item waves-light" href="#" mdbWavesEffect>
+              <mdb-icon fas icon="sign-out-alt"></mdb-icon>
+              Log out</a>
+          </div>
+        </li>
+      </ul>
+    </links>
+  </mdb-navbar>
+</header>
+</body>
+</html>
+
+
