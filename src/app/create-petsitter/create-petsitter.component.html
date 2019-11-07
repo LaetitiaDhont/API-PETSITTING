@@ -3,87 +3,157 @@
 <header>
   <!-- FORM REGISTER PETSITTER-->
   <div [hidden]="submitted">
-    <form (ngSubmit)="onSubmit()" [ngFormOptions]="{updateOn: 'onSubmit()'}"
+    <form (ngSubmit)="onSubmit()"
           class="text-center border border-light p-5">
 
       <p class="h4 mb-4">Je veux devenir petsitter</p>
 
       <div class="form-row mb-4 justify-content-center">
         <div class="col-auto">
+
           <!-- First name -->
-          <label class="justify-content-center">Mon prénom</label>
-          <input [(ngModel)]="petsitter.firstName" class="form-control" id="firstName" name="firstName"
-                 placeholder="Laetitia" required type="text">
-        </div>
-        <div class="col-auto">
-          <label>Mon nom de famille</label>
-          <!-- Last name -->
-          <input [(ngModel)]="petsitter.lastName" class="form-control" id="lastName" name="lastName"
-                 placeholder="Dhont" required type="text">
-        </div>
-      </div>
 
-      <!-- E-mail -->
-      <div class="form-row mb-4 justify-content-center">
-        <div class="col-auto">
-          <input #email="ngModel" [(ngModel)]="petsitter.mail" class="form-control mb-4" id="email" mdbInput mdbValidate
-                 name="email" pattern=".+@.+\.[a-z]+" required required type="email">
-          <label for="email">Email</label>
-          <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">Le format de l'email est incorrect
-          </mdb-error>
-          <mdb-success *ngIf="email.valid && (email.dirty || email.touched)">Input valid</mdb-success>
-        </div>
-      </div>
-      <!-- Password -->
-      <!-- <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
-              aria-describedby="defaultRegisterFormPasswordHelpBlock">
-       <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-         At least 8 characters and 1 digit
-       </small> -->
-
-      <!-- Phone number -->
-      <div class="form-row justify-content-center">
-        <div class="col-auto justif">
-          <label for="environment">Je vis dans un milieu...</label>
-          <select [(ngModel)]="petsitter.environment" class="browser-default custom-select mb-4"
-                  id="environment" name="environment">
-            <option selected value="URBAN">Urbain</option>
-            <option value="COUNTRYSIDE">Campagne</option>
-            <option value="BEACH">Bord de mer</option>
-            <option value="MOUNTAIN">Montagneux</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-row justify-content-center">
-        <div class="col-auto">
-          <label>Mon numéro de téléphone portable</label>
-          <input [(ngModel)]="petsitter.phone" class="form-control mb-4" id="phone" name="phone"
-                 placeholder="0785642554" required type="text">
-          <label>Prix en euros par jour</label>
-          <input [(ngModel)]="petsitter.price" class="form-control mb-4" id="price" name="price" placeholder="20"
-                 required type="text">
-          <div class="form-row mb-4 justify-content-center">
+          <div class="md-form form-row mb-4 justify-content-center">
             <div class="col-auto">
-              <!-- First name -->
-              <label class="justify-content-center">Animaux autorisées</label>
-              <input [(ngModel)]="petsitter.animalAllowed" class="form-control" id="animalAllowed" name="animalAllowed"
-                     placeholder="Animaux autorisés" required type="text">
+              <div class="md-form">
+                <input mdbInput mdbValidate name="inputfirstName" type="text" id="inputfirstName" class="form-control"
+                       [(ngModel)]="petsitter.firstName" #inputfirstName="ngModel" required minlength="2" required
+                       maxlength="20">
+                <label for="inputfirstName">Mon prénom</label>
+                <mdb-error *ngIf="inputfirstName.invalid && (inputfirstName.dirty || inputfirstName.touched)">Le prénom
+                  doit contenir au minimum 2 caractères et au maximum 20.
+                </mdb-error>
+                <mdb-success *ngIf="inputfirstName.valid && (inputfirstName.dirty || inputfirstName.touched)">Le prénom
+                  est valide.
+                </mdb-success>
+              </div>
             </div>
           </div>
-          <button (click)="onSubmit()" block="true" class="my-4" color="cyan" id="button" mdbBtn type="submit">
-            Devenir petsitter
-          </button>
 
+          <!-- Last name -->
+
+          <div class="md-form form-row mb-4 justify-content-center">
+            <div class="col-auto">
+              <div class="md-form">
+                <input mdbInput mdbValidate name="inputlastName" type="text" id="inputlastName" class="form-control"
+                       [(ngModel)]="petsitter.lastName" #inputlastName="ngModel" required minlength="2" required
+                       maxlength="20">
+                <label for="inputlastName">Mon nom</label>
+                <mdb-error *ngIf="inputlastName.invalid && (inputlastName.dirty || inputlastName.touched)">Le nom doit
+                  contenir au minimum 2 caractères et au maximum 20.
+                </mdb-error>
+                <mdb-success *ngIf="inputlastName.valid && (inputlastName.dirty || inputlastName.touched)">Le nom est
+                  valide.
+                </mdb-success>
+              </div>
+            </div>
+          </div>
+
+          <!-- E-mail -->
+
+          <div class="md-form form-row mb-4 justify-content-center">
+            <div class="col-auto">
+              <div class="md-form">
+                <input mdbInput mdbValidate name="inputMail" type="email" id="inputMail" class="form-control"
+                       [(ngModel)]="petsitter.mail" #inputMail="ngModel" required pattern=".+@.+\.[a-z]+">
+                <label for="inputMail">Mon Email</label>
+                <mdb-error *ngIf="inputMail.invalid && (inputMail.dirty || inputMail.touched)">L'email doit respecté le
+                  format :
+                  monmail@hebergeur.com
+                </mdb-error>
+                <mdb-success *ngIf="inputMail.valid && (inputMail.dirty || inputMail.touched)">L'email est correct
+                </mdb-success>
+              </div>
+            </div>
+          </div>
+
+          <!-- Animals Allowed -->
+
+          <div class="md-form form-row mb-4 justify-content-center">
+            <div class="col-auto">
+              <div class="md-form">
+                <input mdbInput mdbValidate name="inputanimalAllowed" type="text" id="inputanimalAllowed"
+                       class="form-control"
+                       [(ngModel)]="petsitter.animalAllowed" #inputanimalAllowed="ngModel" required minlength="2"
+                       required
+                       maxlength="20">
+                <label for="inputanimalAllowed">Les animaux autorisés</label>
+                <mdb-error
+                  *ngIf="inputanimalAllowed.invalid && (inputanimalAllowed.dirty || inputanimalAllowed.touched)">Les
+                  animaux autorisées
+                  doivent contenir au minimum deux caractères et au maximum 20.
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputanimalAllowed.valid && (inputanimalAllowed.dirty || inputanimalAllowed.touched)">Les
+                  animaux sont valides.
+                </mdb-success>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone -->
+
+          <div class="md-form form-row mb-4 justify-content-center">
+            <div class="col-auto">
+              <div class="md-form">
+                <input mdbInput mdbValidate name="inputPhone" type="text" id="inputPhone" class="form-control"
+                       [(ngModel)]="petsitter.phone" #inputPhone="ngModel" required
+                       pattern="(0|(\+33)|(0033))[1-9][0-9]{8}">
+                <label for="inputPhone">Mon téléphone</label>
+                <mdb-error
+                  *ngIf="inputPhone.invalid && (inputPhone.dirty || inputPhone.touched)">Le téléphone doit respecter le
+                  format français +33.
+                  Exemple : +33685902516
+                </mdb-error>
+                <mdb-success
+                  *ngIf="inputPhone.valid && (inputPhone.dirty || inputPhone.touched)">Le téléphone est valide.
+                </mdb-success>
+              </div>
+            </div>
+          </div>
+
+          <!-- Environment -->
+
+
+          <div class="col-auto">
+            <label class="-align-justify">J'habite en...</label>
+            <select required [(ngModel)]="petsitter.environment" class="browser-default custom-select mb-4"
+                    id="environment" name="environment">
+              <option value="URBAN">Ville</option>
+              <option value="COUNTRYSIDE">Campagne</option>
+              <option value="BEACH">Au bord de mer</option>
+              <option value="MOUNTAIN">En montagne</option>
+            </select>
+          </div>
+
+          <!-- Price  -->
+
+
+          <div class="col-auto">
+            <div class="md-form">
+              <input mdbInput mdbValidate name="inputPrice" type="number" id="inputPrice" class="form-control"
+                     [(ngModel)]="petsitter.price" #inputPrice="ngModel" min="2" max="20">
+              <label for="inputPrice">Mon prix en euros</label>
+              <mdb-success
+                *ngIf="inputPrice.valid && (inputPrice.dirty || inputPrice.touched)">Le prix est valide.
+              </mdb-success>
+            </div>
+          </div>
+
+          <div class="col-auto">
+            <button class="mb-auto" (click)="onSubmit()" block="true" class="my-4" color="cyan" id="button" mdbBtn
+                    type="submit">
+              Devenir petsitter
+            </button>
+          </div>
         </div>
       </div>
 
-
-      <!-- Sign up button -->
 
     </form>
   </div>
 
-  <!-- Default form register -->
+
 </header>
 </body>
 </html>

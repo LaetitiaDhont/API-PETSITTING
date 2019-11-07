@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Petsitter} from '../model/petsitter';
 import {RegisterService} from '../services/register.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-create-petsitter',
@@ -11,12 +12,13 @@ export class CreatePetsitterComponent implements OnInit {
   petsitter: Petsitter = new Petsitter();
   submitted = false;
 
+
   constructor(private registerService: RegisterService) {
   }
 
-  ngOnInit() {
-    console.log(this.petsitter);
-  }
+  ngOnInit() {}
+
+
 
   newPetsitter(): void {
     this.submitted = false;
@@ -33,6 +35,9 @@ export class CreatePetsitterComponent implements OnInit {
     this.submitted = true;
     this.save();
   }
+
+
+
 
 
 }

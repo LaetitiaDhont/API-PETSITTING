@@ -7,7 +7,7 @@ import {Petsitter} from '../model/petsitter';
   providedIn: 'root'
 })
 export class RegisterService {
-  private baseUrl = 'http://localhost:8080/petsitters';
+  private baseUrl = 'http://localhost:9090/petsitters';
 
   constructor(private httpclient: HttpClient) {
   }
