@@ -16,13 +16,7 @@ export class CreatePetsitterComponent implements OnInit {
   constructor(private registerService: RegisterService) {
   }
 
-  ngOnInit() {}
-
-
-
-  newPetsitter(): void {
-    this.submitted = false;
-    this.petsitter = new Petsitter();
+  ngOnInit() {
   }
 
   save() {
@@ -35,9 +29,4 @@ export class CreatePetsitterComponent implements OnInit {
     this.submitted = true;
     this.save();
   }
-
-
-
-
-
 }

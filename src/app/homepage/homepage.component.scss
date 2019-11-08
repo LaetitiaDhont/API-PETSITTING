@@ -1,7 +1,18 @@
 #banner {
   width: 100%;
-  height: auto;
+  height: 30em;
   mask-image: linear-gradient(rgba(0, 0, 0, 1.0), transparent);
 
 }
 
+div {
+  display: block;
+}
+
+.flex-wrap {
+  flex-wrap: wrap!important;
+}
+
+.d-flex {
+  display: flex!important;
+}

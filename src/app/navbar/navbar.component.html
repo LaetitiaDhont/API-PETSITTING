@@ -5,14 +5,10 @@
 
 <body>
 <header>
-  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan">
-    <mdb-navbar-brand>
-      <a class="navbar-brand p-2" href="#">
-        <figure>
-          <img alt="logo" id="logo" src="./assets/img/logo.png"/>
-        </figure>
-      </a>
-    </mdb-navbar-brand>
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark " [containerInside]="false">
+    <a>
+      <img alt="logo" id="logo" src="./assets/img/logo.png"/>
+    </a>
     <links>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
